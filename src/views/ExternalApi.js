@@ -4,6 +4,7 @@ import Highlight from "../components/Highlight";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { getConfig } from "../config";
 import Loading from "../components/Loading";
+import Content from "../components/Content";
 
 export const ExternalApiComponent = () => {
   const { apiOrigin = "http://localhost:8000", audience } = getConfig();
@@ -113,20 +114,8 @@ export const ExternalApiComponent = () => {
             </a>
           </Alert>
         )}
-
-        <h1>External API</h1>
-{/*         <p className="lead">
-          Ping an external API by clicking the button below.
-        </p>
-
-        <p>
-          This will call a local API on port 3001 that would have been started
-          if you run <code>npm run dev</code>. An access token is sent as part
-          of the request's `Authorization` header and the API will validate it
-          using the API's audience value.
-        </p>
- */}
-        {!audience && (
+      <Content />
+      {!audience && (
           <Alert color="warning">
             <p>
               You can't call the API at the moment because your application does
